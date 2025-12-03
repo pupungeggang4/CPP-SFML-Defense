@@ -1,5 +1,6 @@
 #include <general.hpp>
 #include <game.hpp>
+#include <scene.hpp>
 
 Game::Game() {
     unsigned int mWidth = sf::VideoMode::getDesktopMode().size.x;
@@ -17,13 +18,13 @@ Game::Game() {
 
 void Game::init() {
     self = shared_from_this();
+    scene = make_shared<SceneTitle>(self);
 }
 
 void Game::run() {
     while (running) {
         handleInput();
         handleScene();
-        window.clear();
         window.display();
     }
 }
@@ -33,9 +34,15 @@ void Game::handleInput() {
         if (event->is<sf::Event::Closed>()) {
             running = false;
         }
+
+        if (const auto* mouseUp = event->getIf<sf::Event::MouseButtonReleased>()) {
+            int button = int(mouseUp->button);
+            sf::Vector2f pos = sf::Vector2f({mouseUp->position.x * 1280.0f / width, mouseUp->position.y * 720.0f / height});
+            self->scene->mouseUp(self, pos, button);
+        }
     }
 }
 
 void Game::handleScene() {
-
+    self->scene->loop(self);
 }
