@@ -8,6 +8,6 @@ std::unordered_map<std::string, std::vector<float>> UI::UITitle = {
     {"text_collection", {180, 260}},
     {"button_erase", {160, 320, 960, 80}},
     {"text_erase", {180, 340}},
-    {"button_exit", {160, 400, 960, 80}},
-    {"text_exit", {180, 420}}
+    {"button_quit", {160, 400, 960, 80}},
+    {"text_quit", {180, 420}}
 };

@@ -1,19 +1,27 @@
-#include <general.hpp>
 #include <game.hpp>
+#include <res.hpp>
 #include <scene.hpp>
 
 Game::Game() {
+    Res::neodgm->setSmooth(false);
+    Res::loadTexture();
+    Res::loadSprite();
+
     unsigned int mWidth = sf::VideoMode::getDesktopMode().size.x;
     if (mWidth > 2560) {
         width = 2560; height = 1440;
     } else if (mWidth > 1920) {
         width = 1920; height = 1080;
     } else {
-        width = 1080; height = 720;
+        width = 1280; height = 720;
     }
     window = sf::RenderWindow(sf::VideoMode({width, height}), "Defense Game");
     view = sf::View({640, 360}, {1280, 720});
     window.setView(view);
+
+    rText = sf::Text(*(Res::neodgm), "", 32);
+    rText.setFillColor(sf::Color::Black);
+    rRect = sf::RectangleShape({0, 0});
 }
 
 void Game::init() {

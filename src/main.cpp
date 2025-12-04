@@ -1,4 +1,5 @@
 #include <general.hpp>
+#include <res.hpp>
 #include <game.hpp>
 
 int main(int argc, char** argv) {
@@ -7,5 +8,8 @@ int main(int argc, char** argv) {
     game->init();
     game->run();
     game->window.close();
+    Res::neodgm.reset();
+    Res::texture.reset();
+    Res::sprite.reset();
     return 0;
 }
