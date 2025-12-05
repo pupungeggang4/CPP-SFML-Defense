@@ -16,6 +16,7 @@ Game::Game() {
         width = 1280; height = 720;
     }
     window = sf::RenderWindow(sf::VideoMode({width, height}), "Defense Game");
+    window.setVerticalSyncEnabled(true);
     view = sf::View({640, 360}, {1280, 720});
     window.setView(view);
 
@@ -27,10 +28,14 @@ Game::Game() {
 void Game::init() {
     self = shared_from_this();
     scene = make_shared<SceneTitle>(self);
+    framePrevious = clock.getElapsedTime().asSeconds();
 }
 
 void Game::run() {
     while (running) {
+        frameCurrent = clock.getElapsedTime().asSeconds();
+        delta = frameCurrent - framePrevious;
+        framePrevious = frameCurrent;
         handleInput();
         handleScene();
         window.display();
