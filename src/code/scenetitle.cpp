@@ -5,7 +5,7 @@
 #include <render.hpp>
 #include <game.hpp>
 
-SceneTitle::SceneTitle(shared_ptr<Game> game) : Scene(game) {
+SceneTitle::SceneTitle(shared_ptr<Game> game) {
 
 }
 
@@ -29,7 +29,9 @@ void SceneTitle::render(shared_ptr<Game> game) {
 
 void SceneTitle::mouseUp(shared_ptr<Game> game, sf::Vector2f pos, int button) {
     if (button == 0) {
-        if (Func::pointInsideRectUI(pos, UI::UITitle["button_quit"])) {
+        if (Func::pointInsideRectUI(pos, UI::UITitle["button_start"])) {
+            game->scene = make_shared<SceneLevelSelect>(game);
+        } else if (Func::pointInsideRectUI(pos, UI::UITitle["button_quit"])) {
             game->running = false;
         }
     }

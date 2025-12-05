@@ -4,7 +4,7 @@
 class Game;
 class Scene {
     public:
-        Scene(shared_ptr<Game>);
+        Scene();
         virtual void loop(shared_ptr<Game>);
         virtual void render(shared_ptr<Game>);
         virtual void mouseUp(shared_ptr<Game>, sf::Vector2f, int);
@@ -25,6 +25,7 @@ class SceneLevelSelect : public Scene {
         virtual void loop(shared_ptr<Game>);
         virtual void render(shared_ptr<Game>);
         virtual void mouseUp(shared_ptr<Game>, sf::Vector2f, int);
+        int page = 0;
 };
 
 class SceneBattle : public Scene {

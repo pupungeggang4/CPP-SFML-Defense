@@ -6,8 +6,12 @@ shared_ptr<std::unordered_map<std::string, sf::Sprite>> Res::sprite = make_share
 
 void Res::loadTexture() {
     texture->emplace("arrow", sf::Texture("image/arrow.png"));
+    texture->emplace("next", sf::Texture("image/next.png"));
+    texture->emplace("prev", sf::Texture("image/prev.png"));
 }
 
 void Res::loadSprite() {
     sprite->emplace("arrow", texture->at("arrow"));
+    sprite->emplace("next", texture->at("next"));
+    sprite->emplace("prev", texture->at("prev"));
 }

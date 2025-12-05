@@ -11,3 +11,18 @@ std::unordered_map<std::string, std::vector<float>> UI::UITitle = {
     {"button_quit", {160, 400, 960, 80}},
     {"text_quit", {180, 420}}
 };
+
+std::unordered_map<std::string, std::vector<float>> UI::UILevelSelect = {
+    {"text_title", {20, 20}},
+    {"text_page", {20, 60}},
+    {"button_back", {1180, 20, 80, 80}},
+    {"button_level_start", {180, 140}},
+    {"button_level_size", {120, 120}},
+    {"button_level_interval", {160, 160}},
+    {"button_prev", {20, 320, 80, 80}},
+    {"button_next", {1180, 320, 80, 80}}
+};
+
+std::unordered_map<std::string, std::vector<float>> UI::UIBattle = {
+
+};
