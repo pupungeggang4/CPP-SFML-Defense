@@ -31,6 +31,8 @@ void SceneTitle::mouseUp(shared_ptr<Game> game, sf::Vector2f pos, int button) {
     if (button == 0) {
         if (Func::pointInsideRectUI(pos, UI::UITitle["button_start"])) {
             game->scene = make_shared<SceneLevelSelect>(game);
+        } else if (Func::pointInsideRectUI(pos, UI::UITitle["button_collection"])) {
+            game->scene = make_shared<SceneCollection>(game);
         } else if (Func::pointInsideRectUI(pos, UI::UITitle["button_quit"])) {
             game->running = false;
         }

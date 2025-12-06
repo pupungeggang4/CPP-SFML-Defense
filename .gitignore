@@ -45,3 +45,4 @@
 *.png~
 
 lib/
+build/

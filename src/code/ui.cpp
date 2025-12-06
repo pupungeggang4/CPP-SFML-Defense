@@ -26,3 +26,12 @@ std::unordered_map<std::string, std::vector<float>> UI::UILevelSelect = {
 std::unordered_map<std::string, std::vector<float>> UI::UIBattle = {
 
 };
+
+std::unordered_map<std::string, std::vector<float>> UI::UIMenu = {
+
+};
+
+std::unordered_map<std::string, std::vector<float>> UI::UICollection = {
+    {"text_title", {20, 20}},
+    {"button_back", {1180, 20, 80, 80}},
+};
