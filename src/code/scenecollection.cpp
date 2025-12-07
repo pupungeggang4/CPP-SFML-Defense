@@ -14,6 +14,7 @@ void SceneCollection::loop(shared_ptr<Game> game) {
 
 void SceneCollection::render(shared_ptr<Game> game) {
     game->window.clear(sf::Color::White);
+    game->rRect.setOutlineColor(sf::Color::Black);
     Render::renderText(game->window, game->rText, "Collection", UI::UICollection["text_title"]);
     Render::renderRect(game->window, game->rRect, UI::UICollection["button_back"], 2);
 }

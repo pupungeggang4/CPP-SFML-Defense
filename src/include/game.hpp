@@ -10,6 +10,7 @@ class Game : public std::enable_shared_from_this<Game> {
         sf::View view;
         sf::RectangleShape rRect; sf::Font font; sf::Text rText = sf::Text(font, "", 32);
         sf::Clock clock = sf::Clock(); bool running = true; float framePrevious, frameCurrent, delta;
+        bool menu = false;
 
         Game();
         void init();

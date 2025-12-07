@@ -21,8 +21,9 @@ file(COPY "${CMAKE_SOURCE_DIR}/src/image" DESTINATION "${CMAKE_BINARY_DIR}/bin")
 
 # Compile
 add_compile_options("-w")
+add_compile_options("-g")
 add_executable(main src/main.cpp ${CODE})
 target_include_directories(main PUBLIC ${CMAKE_SOURCE_DIR}/src/include)
 target_include_directories(main PUBLIC ${CMAKE_SOURCE_DIR}/src/code)
-target_compile_features(main PRIVATE cxx_std_20)
+target_compile_features(main PRIVATE cxx_std_17)
 target_link_libraries(main PRIVATE SFML::Graphics)

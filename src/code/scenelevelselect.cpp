@@ -15,9 +15,10 @@ void SceneLevelSelect::loop(shared_ptr<Game> game) {
 
 void SceneLevelSelect::render(shared_ptr<Game> game) {
     game->window.clear(sf::Color::White);
+    game->rRect.setOutlineColor(sf::Color::Black);
     Render::renderRect(game->window, game->rRect, UI::UILevelSelect["button_back"], 2);
     Render::renderText(game->window, game->rText, "Select Level", UI::UILevelSelect["text_title"]);
-    Render::renderText(game->window, game->rText, std::format("Page: {}/{}", page + 1, 8), UI::UILevelSelect["text_page"]);
+    Render::renderText(game->window, game->rText, "Page: " + std::to_string(page + 1) + "/8", UI::UILevelSelect["text_page"]);
 
     for (int i = 0; i < 18; i++) {
         int row = i / 6;
